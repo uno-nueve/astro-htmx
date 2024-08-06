@@ -1,0 +1,28 @@
+---
+import { supabase } from "../../../lib/supabase";
+export const partial = true;
+
+const query = Astro.url.searchParams.get("query");
+const { data, error } = await supabase
+    .from("employees")
+    .select()
+    .textSearch("name_area", `${query?.toString()}`);
+
+if (error) {
+    return new Response(error.message, { status: 500 });
+}
+
+console.log(data);
+---
+
+<p class="text-white">
+    query: {query}
+    {
+        data.map((result) => (
+            <>
+                <p>{result.name}</p>
+                <p>{result.area}</p>
+            </>
+        ))
+    }
+</p>

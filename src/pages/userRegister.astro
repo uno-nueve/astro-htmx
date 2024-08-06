@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="User Profile Register">
+    <h1 class="text-4xl text-gray-100">Register</h1>
+    <form action="/api/userRegister" method="post" class="grow w-full py-10">
+        <label for="name" class="block pb-2 text-gray-200">Name</label>
+        <input
+            type="text"
+            name="name"
+            id="name"
+            class="border border-gray-100 p-4 w-full rounded-xl focus:ring-blue-100"
+        />
+        <label for="area" class="block pb-2 text-gray-200">Area</label>
+        <input
+            type="text"
+            name="area"
+            id="area"
+            class="border border-gray-100 p-4 w-full rounded-xl focus:ring-blue-100"
+        />
+        <button type="submit" class="pt-2">Register</button>
+    </form>
+</Layout>

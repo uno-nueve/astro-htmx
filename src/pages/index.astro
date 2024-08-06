@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Astro + HTMX">
+    <h1 class="text-4xl text-gray-100">Search for users</h1>
+    <form class="grow w-full py-10">
+        <label for="query" class="block pb-2 text-gray-200">User</label>
+        <input
+            type="text"
+            name="query"
+            hx-get="/partials/users/results"
+            hx-trigger="keyup changed delay:500ms"
+            hx-target="#search-results"
+            placeholder="John Doe"
+            class="border border-gray-100 p-4 w-full rounded-xl focus:ring-blue-100"
+        />
+    </form>
+    <div class="pt-2 mb-6" id="search-results"></div>
+</Layout>
