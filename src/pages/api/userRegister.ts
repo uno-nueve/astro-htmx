@@ -12,7 +12,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
         });
     }
 
-    const { data, error } = await supabase
+    const { error } = await supabase
         .from("employees")
         .insert([{ name: name, area: area }])
         .select();

@@ -28,8 +28,7 @@ if (error) {
 }
 
 if (!data || !data.user || !data.session) {
-    console.error("Auth data not available");
-    return new Response(error.message, { status: 500 });
+    throw new Error("Auth data not available");
 }
 
 const user = data.user.user_metadata;
